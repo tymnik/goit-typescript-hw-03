@@ -1,6 +1,7 @@
 abstract class House {
   door: boolean = false;
   key: Key;
+  tenants: Person[] = [];
 
   constructor(key: Key) {
     this.key = key;
@@ -10,6 +11,7 @@ abstract class House {
 
   comeIn(person: Person): void {
     if (this.door) {
+      this.tenants.push(person);
       console.log(`${person.getKey().getSignature()} entered the house.`);
     } else {
       console.log("The door is closed.");
